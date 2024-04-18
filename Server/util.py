@@ -78,11 +78,12 @@ def get_cropped_image(image_path, image_base64_data):
                 cropped_faces.append(roi_color)
     return cropped_faces
 
-def get_b64_test_image_for_virat():
-    with open("b64.txt") as f:
+# Test the function
+def get_b64_test_image_for_dasun():
+    with open("DS.txt") as f:
         return f.read()
 
 if __name__ == '__main__':
     load_saved_artifacts()
 
-    print(classify_image(get_b64_test_image_for_virat(), None))
+    print(classify_image(get_b64_test_image_for_dasun(), None))
