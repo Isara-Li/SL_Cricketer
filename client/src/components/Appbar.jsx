@@ -40,7 +40,7 @@ export default function HideAppBar(props) {
             <CssBaseline />
             <HideOnScroll {...props}>
                 <AppBar>
-                    <Toolbar>
+                    <Toolbar style={{ justifyContent: 'center' }}>
                         <Typography variant="h6" component="div">
                             Cricket Person Classifier
                         </Typography>
