@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Appbar from '../components/Appbar';
 import Card from '../components/Card';
 
-
-
 function Home() {
     const [uploadedImage, setUploadedImage] = useState(null);
+    const [data, setData] = useState(null);
+    const [prob, setprob] = useState(null);
 
     const handleImageUpload = (event) => {
         const file = event.target.files[0];
@@ -13,7 +13,7 @@ function Home() {
             const reader = new FileReader();
             reader.onloadend = () => {
                 setUploadedImage(reader.result);
-                sendImageToServer(reader.result.split(',')[1]); // Sending base64 data without the prefix
+                sendImageToServer(reader.result); // Sending base64 data without the prefix
             };
             reader.readAsDataURL(file);
         }
@@ -25,12 +25,9 @@ function Home() {
             headers: {
                 'Content-Type': 'application/json',
             },
-           
             body: JSON.stringify({ image_data: base64Image }), // Ensure the key matches the expected key on the server side
         })
-        
         .then(response => {
-            console.log(response)
             if (response.ok) {
                 return response.json();
             } else {
@@ -39,21 +36,30 @@ function Home() {
         })
         .then(data => {
             console.log('Image sent to server successfully');
+
             console.log('Classification results:', data);
+            // add the data to a variable
+            setData(data[0].class);
+            setprob(data[0].class_probability);
+            console.log('Classification name:', data[0].class);
+            console.log('Classification name:', data[0].class_probability);
+
         })
         .catch(error => {
             console.error('Error sending image to server:', error);
         });
-        console.log(base64Image)
-        //console.log(response)
-
     };
-  
+    const getMaxProb = (prob) => {
+        if (prob && prob.length > 0) {
+            return Math.max(...prob).toFixed(2); // Get the maximum value and fix it to 2 decimal places
+        }
+        return null;
+    };
+
     return (
         <div>
             <Appbar />
             <div className='flex flex-col gap-6 p-10 px-3 max-w-6xl mx-auto'>
-           
                 <div className='flex flex-row flex-wrap gap-6'>
                     <Card
                         image="https://srilankacricket.lk/wp-content/uploads/2024/02/Pathum-Nissanka-100-runs_VAK_2360-E-1.jpg"
@@ -76,20 +82,19 @@ function Home() {
                         description="Pinnaduwage Wanindu Hasaranga de Silva, better known as Wanindu Hasaranga, is a professional Sri Lankan cricketer and current T20I captain who plays for the Sri Lanka cricket team in white ball cricket as a Batting All rounder. He is a Right-arm leg spinner."
                     />
                 </div>
-                <div class="mb-6 border border-gray-500 bg-gray-100 rounded-lg px-4 py-2 w-7/8">
-    <input
-        type="file"
-        accept="image/*"
-        onChange={handleImageUpload}
-        class="outline-none"
-    />
-</div>
-
+                <div className="mb-6 border border-gray-500 bg-gray-100 rounded-lg px-4 py-2 w-7/8">
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        className="outline-none"
+                    />
+                </div>
                 {uploadedImage && (
                     <Card
                         image={uploadedImage}
-                        title="Uploaded Image"
-                        description="This is the image you just uploaded."
+                        title= {data}
+                        description={`The probability of the classification is: ${getMaxProb(prob)}%`}
                     />
                 )}
             </div>

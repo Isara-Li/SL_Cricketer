@@ -1,22 +1,22 @@
 from flask import Flask, request, jsonify
-import util
+import util  # Assuming util is a module you created for image classification
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
-@app.route(
-    "/classify_image", methods=["GET", "POST"]
-)  # this route should be defined as the function below "/classify_image" route
+@app.route("/classify_image", methods=["POST"])  # Only POST method is required here
 def classify_image():
-    image_data = request.form["image_data"]
-    
-    response = jsonify(util.classify_image(image_data))
+    image_data = request.json.get("image_data")  # Get image_data from JSON request body
 
+    if image_data is None:
+        return jsonify({"error": "No image data provided"}), 400
+
+    response = jsonify(util.classify_image(image_data))
     response.headers.add("Access-Control-Allow-Origin", "*")
+    print(response)
 
     return response
-
 
 if __name__ == "__main__":
     print("Starting Python Flask Server For Sports Celebrity Image Classification")
