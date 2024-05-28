@@ -82,6 +82,8 @@ function Home() {
                         description="Pinnaduwage Wanindu Hasaranga de Silva, better known as Wanindu Hasaranga, is a professional Sri Lankan cricketer and current T20I captain who plays for the Sri Lanka cricket team in white ball cricket as a Batting All rounder. He is a Right-arm leg spinner."
                     />
                 </div>
+                <div className="flex flex-col items-center gap-6 py-7 bg-slate-300 rounded-lg">
+                <h1 className="text-2xl font-bold text-center">Upload an image to classify</h1>
                 <div className="mb-6 border border-gray-500 bg-gray-100 rounded-lg px-4 py-2 w-7/8">
                     <input
                         type="file"
@@ -97,6 +99,7 @@ function Home() {
                         description={`The probability of the classification is: ${getMaxProb(prob)}%`}
                     />
                 )}
+            </div>
             </div>
         </div>
     );
