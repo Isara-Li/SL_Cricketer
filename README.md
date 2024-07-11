@@ -53,4 +53,13 @@ The React frontend is responsible for:
 - **Interaction with Backend**: Sends the uploaded images to the Flask backend and displays the prediction results to the user.
 - **Styling**: Tailwind CSS is used to style the application, ensuring a modern and responsive design.
 
+## Installation and Setup
+
+### Backend Setup
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/sri-lankan-cricketer-classification.git
+   cd sri-lankan-cricketer-classification
+   ```bash
 
