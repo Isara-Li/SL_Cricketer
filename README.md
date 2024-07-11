@@ -74,3 +74,21 @@ The React frontend is responsible for:
 
       ```
 
+### Frontend Setup
+
+1. **Navigate to the Frontend Directory:**:
+    ```bash
+   cd ../frontend
+   ```
+2. **Install the Required npm Packages:**:
+  ```bash
+   npm install
+   ```
+3. **Start the React Application:**:
+  ```bash
+   npm start
+   ```
+The frontend should now be running on http://localhost:3000/.
+
+
+Feel free to open an issue or submit a pull request for any improvements or bug fixes.
