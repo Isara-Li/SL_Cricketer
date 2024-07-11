@@ -60,6 +60,17 @@ The React frontend is responsible for:
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/yourusername/sri-lankan-cricketer-classification.git
+   
    cd sri-lankan-cricketer-classification
+   ```
+2. **Install the Required Python Packages:**:
    ```bash
+   pip install -r requirements.txt
+   ```
+3. **Run the Flask Application**:
+     ```bash
+   cd backend
+   python server.py
+
+      ```
 
