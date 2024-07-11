@@ -59,7 +59,7 @@ The React frontend is responsible for:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/sri-lankan-cricketer-classification.git
+   git clone https://github.com/Isara-Li/sri-lankan-cricketer-classification.git
    
    cd sri-lankan-cricketer-classification
    ```
@@ -81,13 +81,13 @@ The React frontend is responsible for:
    cd ../frontend
    ```
 2. **Install the Required npm Packages:**:
-  ```bash
+   ```bash
    npm install
-   ```
+    ```
 3. **Start the React Application:**:
-  ```bash
+   ```bash
    npm start
-   ```
+    ```
 The frontend should now be running on http://localhost:3000/.
 
 
