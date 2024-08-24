@@ -4,6 +4,10 @@
 
 This project aims to classify images of Sri Lankan cricketers into four distinct classes: Dasun Shanaka, Pathum Nissanka, Wanindu Hasaranga, and Maheesh Theekshana. The project leverages machine learning techniques, specifically Support Vector Machine (SVM) models, to accurately identify and categorize the cricketers based on their images. The backend of the project is built using Python with Flask, while the frontend is developed using React and Tailwind CSS.
 
+
+https://github.com/user-attachments/assets/6e41fc03-ce25-4399-bab8-e9c47c04f8cd
+
+
 ## Project Structure
 
 - **Backend**: Python (Flask)
